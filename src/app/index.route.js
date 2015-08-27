@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('ngsocial')
+    .module('ngSocial')
     .config(routeConfig);
 
   /** @ngInject */
@@ -13,6 +13,11 @@
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'main'
+      })
+      .state('facebook', {
+        url: '/facebook',
+        templateUrl: 'app/facebook/facebook.html',
+        controller: 'FacebookCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

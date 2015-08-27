@@ -2,15 +2,15 @@
   'use strict';
 
   angular
-    .module('ngsocial', [
+    .module('ngSocial', [
+      'ngSocial.facebook',
       'ngAnimate',
       'ngCookies',
       'ngTouch',
       'ngSanitize',
       'ngResource',
       'ui.router',
-      'ui.bootstrap',
-      'ngsocial.facebook'
+      'ui.bootstrap'
     ]);
 
 })();

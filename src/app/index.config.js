@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('ngsocial')
+    .module('ngSocial')
     .config(config);
 
   /** @ngInject */
