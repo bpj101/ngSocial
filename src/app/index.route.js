@@ -14,10 +14,10 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .state('facebook', {
+      .state('home.facebook', {
         url: '/facebook',
         templateUrl: 'app/facebook/facebook.html',
-        controller: 'FacebookCtrl'
+        controller: 'FacebookController'
       });
 
     $urlRouterProvider.otherwise('/');

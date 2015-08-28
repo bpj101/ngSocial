@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   angular.module('ngSocial.facebook')
-    .controller('FacebookCtrl', ['$scope',
+    .controller('FacebookController', ['$scope',
       function ($scope) {
 
       }
