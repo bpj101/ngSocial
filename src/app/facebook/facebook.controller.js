@@ -5,6 +5,7 @@
       function ($scope, $facebook) {
         $scope.isLoggedIn = false;
         $scope.welcomeMsg = 'Please Log In';
+        $scope.posted = false;
 
         $scope.login = function () {
           $facebook.login().then(function () {
@@ -21,12 +22,24 @@
             refresh();
           });
         };
+        $scope.postStatus = function () {
+          var body = this.body;
+          $facebook.api('/me/feed', 'post', {
+            message: body
+          }).then(function (response) {
+            $scope.posted = true;
+            console.log(response);
+            $scope.postMsg = 'Thanks for Posting';
+            refresh();
+          });
+          this.body = '';
+        };
 
         function refresh() {
           $facebook.api('/me', {
-        fields: 'last_name, first_name, email, gender, locale, link, picture, permissions, posts'
+            fields: 'last_name, first_name, email, gender, locale, link, picture, permissions, posts'
           }).then(function (response) {
-              $scope.welcomeMsg = 'Welcome ' + response.name;
+              $scope.welcomeMsg = 'Welcome ' + response.first_name + ' ' + response.last_name;
               $scope.isLoggedIn = true;
               $scope.userInfo = response;
               $scope.picture = response.picture.data.url;
@@ -37,6 +50,7 @@
             function (err) {
               $scope.welcomeMsg = 'Please Log In';
             });
+
         }
         refresh();
       }
