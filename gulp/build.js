@@ -82,7 +82,7 @@ gulp.task('html', ['inject', 'partials'], function () {
 
 gulp.task('copy-bs-fonts', function () {
   return gulp.src(conf.wiredep.directory + '/bootstrap/fonts/*.{eot,svg,ttf,woff,woff2}')
-    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/fonts/')));
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
 });
 
 // Only applies for fonts from bower dependencies
